@@ -1,6 +1,9 @@
 # XITN
 A TeX like syntax for XML
 
+A slash ```\``` is for creating elements
+and a hash ```#``` is used for macros.
+
 ## Examples
 
 ### Basics
@@ -34,4 +37,16 @@ Copyright
 <span id="myId">
   Lorem Ipsum
 </p>
+```
+
+### Macros
+
+```xml
+#!DEF(title, 1, \h1.small-caps{#1})
+#!DEF(title, 2,
+  #title(#1) by \h2.small-caps{#2})
+#!DEF(pcounter, 1)
+#!DEF(p, 1,
+  \p{\span.counter{#pcounter} #1}
+  #!INCR{#pcounter})
 ```
